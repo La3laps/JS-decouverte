@@ -12,12 +12,22 @@
         /* Section 1 */   
 
         var name = "Joe";
+        // instancie une variable string "Joe".
+        
         var city = 'London';
+        // instancie une variable string "London".
+        
         var age = 32;
+        // instancie une variable int "32".
+        
         var isRed = true;
+        //instancie une variable bool "true"
+
         var isOld = age > 80;
+        //instancie une variable bool "false" car age = 32.
 
         var previousJobs = ['lawyer', 'developper', 'Professionnal climber'];
+        //instancie un array de taille 3 contenant des strings
 
         function info(height, weight) {
             if (height > 180) {
@@ -31,25 +41,38 @@
                 console.log('Good !')
             }
         }
+        /*
+            Instancie une fonction qui prend en paramètre une hauteur et
+            une largeur qui contient des conditions
+        */
 
         info(165, 45);
+        //utilise la fonction pour verifier pour height = 165, width = 45
 
         var myHeight = 175;
+        //instancie une variable myHeight 
+
         var myWeight = 86;
+        //instancie une variable myWeight
 
         info(myHeight, myWeight);
+        //utilise la fonction info avec height = 175 et weight = 86
 
         info(myHeight + 15, myWeight - 100);
+        // Pareil mais on change les valeurs de height et weight
 
         function toUpper(variable) {
             return variable.toUpperCase();
         }
+        //change une variable en majuscules
 
         var upperName = toUpper(name);
+        //transforme le nom en majuscule "JOE"
 
         for (i = 0; i < 3; i = i + 1) {
             console.log(previousJobs[i]);
         }
+        //Crée un for loop pour afficher le contenu de previousJobs
 
         /* Section 2: */
 
