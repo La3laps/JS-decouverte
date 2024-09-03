@@ -25,10 +25,23 @@
       <input type="checkbox" id="byNameReversed" name="byNameReversed" />
       <label for="scales" class="me-5">Sort By Name↑</label>
     </div>
-    <div id="repeatable-items" class="container"></div>
+    <table class="table m-5">
+      <thead>
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Type</th>
+          <th scope="col">Desc</th>
+          <th scope="col">Prix</th>
+          <th scope="col">Quantité</th>
+          <th scope="col">Adresse</th>
+        </tr>
+      </thead>
+      <tbody id="repeatable-items"></tbody>
+    </table>
     <div id="form" class="container d-flex justify-content-center">
       <form action="" id="myForm">
         <label for="name">Nom:</label>
+        <br />
         <textarea
           name="name"
           id="name"
@@ -37,6 +50,7 @@
         ></textarea>
         <br />
         <label for="type">Type:</label>
+        <br />
         <textarea
           name="type"
           id="type"
@@ -45,6 +59,7 @@
         ></textarea>
         <br />
         <label for="description">Description:</label>
+        <br />
         <textarea
           name="description"
           id="description"
@@ -53,6 +68,7 @@
         ></textarea>
         <br />
         <label for="price">Price:</label>
+        <br />
         <textarea
           name="price"
           id="price"
@@ -61,13 +77,19 @@
         ></textarea>
         <br />
         <label for="quantity">Quantity:</label>
+        <br />
         <textarea
           name="quantity"
           id="quantity"
           required="required"
           style="height: 2svh"
         ></textarea>
-        <input type="submit" value="Ajouter un item" />
+        <br />
+        <input
+          type="submit"
+          class="btn btn-primary mt-3"
+          value="Ajouter un item"
+        />
       </form>
     </div>
     <script src="datas.js"></script>

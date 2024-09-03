@@ -44,28 +44,31 @@ function setup() {
 }
 
 function printItems(array) {
+  productContainer.innerHTML = "";
   for (let i = 0; i < array.length; i++) {
     productContainer.innerHTML +=
-      "<p class='card text-center py-5 mt-5 mb-5'>" +
-      "<span class='text-success fs-2'>" +
+      "<tr><th scope='row'>" +
       array[i].item[0].name +
-      "</span>" +
-      "<br>" +
+      "</th>" +
+      "<td>" +
       array[i].translatedType +
-      "<br>" +
+      "</td>" +
+      "<td>" +
       array[i].item[0].description +
-      "<br>" +
+      "</td>" +
+      "<td>" +
       array[i].item[0].price +
-      "<br>" +
+      "$</td>" +
+      "<td>" +
       array[i].item[0].quantity +
-      "<br>" +
-      "<span class='text-start ps-5 text-danger'>" +
+      "</td>" +
+      "<td>" +
       array[i].item[0].contact.firstName +
       " " +
       array[i].item[0].contact.lastName +
       " - " +
       array[i].item[0].contact.address +
-      "</span></p>";
+      "</td></tr>";
   }
 }
 
@@ -102,26 +105,28 @@ inStock.addEventListener("change", function () {
     for (let i = 0; i < jsonDatas.length; i++) {
       if (jsonDatas[i].item[0].quantity > 0) {
         productContainer.innerHTML +=
-          "<p class='card text-center py-5 mt-5 mb-5'>" +
-          "<span class='text-success fs-2'>" +
+          "<tr><th scope='row'>" +
           jsonDatas[i].item[0].name +
-          "</span>" +
-          "<br>" +
+          "</th>" +
+          "<td>" +
           jsonDatas[i].translatedType +
-          "<br>" +
+          "</td>" +
+          "<td>" +
           jsonDatas[i].item[0].description +
-          "<br>" +
+          "</td>" +
+          "<td>" +
           jsonDatas[i].item[0].price +
-          "<br>" +
+          "$</td>" +
+          "<td>" +
           jsonDatas[i].item[0].quantity +
-          "<br>" +
-          "<span class='text-start ps-5 text-danger'>" +
+          "</td>" +
+          "<td>" +
           jsonDatas[i].item[0].contact.firstName +
           " " +
           jsonDatas[i].item[0].contact.lastName +
           " - " +
           jsonDatas[i].item[0].contact.address +
-          "</span></p>";
+          "</td></tr>";
       }
     }
     byName.checked = false;
