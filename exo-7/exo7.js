@@ -39,7 +39,7 @@ function setup() {
         break;
     }
 
-    console.log(jsonDatas[i]);
+    // console.log(jsonDatas[i]);
   }
 }
 
@@ -195,7 +195,7 @@ function submitForm(e) {
         ],
       };
       jsonDatas.push(tempObject);
-      console.log(jsonDatas);
+      // console.log(jsonDatas);
       printItems(jsonDatas);
     });
 }
