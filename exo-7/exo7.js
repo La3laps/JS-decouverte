@@ -48,26 +48,33 @@ function printItems(array) {
     productContainer.innerHTML +=
       "<p class='card text-center py-5 mt-5 mb-5'>" +
       "<span class='text-success fs-2'>" +
-      array[i].name +
+      array[i].item[0].name +
       "</span>" +
       "<br>" +
       array[i].translatedType +
       "<br>" +
-      array[i].description +
+      array[i].item[0].description +
       "<br>" +
-      array[i].price +
+      array[i].item[0].price +
       "<br>" +
-      array[i].quantity +
-      "</p>";
+      array[i].item[0].quantity +
+      "<br>" +
+      "<span class='text-start ps-5 text-danger'>" +
+      array[i].item[0].contact.firstName +
+      " " +
+      array[i].item[0].contact.lastName +
+      " - " +
+      array[i].item[0].contact.address +
+      "</span></p>";
   }
 }
 
 function sortABC() {
   arrayTemp.sort(function (a, b) {
-    if (a.name < b.name) {
+    if (a.item[0].name < b.item[0].name) {
       return -1;
     }
-    if (a.name > b.name) {
+    if (a.item[0].name > b.item[0].name) {
       return 1;
     }
     return 0;
@@ -77,10 +84,10 @@ function sortABC() {
 
 function sortZYX() {
   arrayTemp.sort(function (b, a) {
-    if (a.name < b.name) {
+    if (a.item[0].name < b.item[0].name) {
       return -1;
     }
-    if (a.name > b.name) {
+    if (a.item[0].name > b.item[0].name) {
       return 1;
     }
     return 0;
@@ -93,21 +100,28 @@ inStock.addEventListener("change", function () {
   productContainer.innerHTML = "";
   if (inStock.checked) {
     for (let i = 0; i < jsonDatas.length; i++) {
-      if (jsonDatas[i].quantity > 0) {
+      if (jsonDatas[i].item[0].quantity > 0) {
         productContainer.innerHTML +=
           "<p class='card text-center py-5 mt-5 mb-5'>" +
           "<span class='text-success fs-2'>" +
-          jsonDatas[i].name +
+          jsonDatas[i].item[0].name +
           "</span>" +
           "<br>" +
           jsonDatas[i].translatedType +
           "<br>" +
-          jsonDatas[i].description +
+          jsonDatas[i].item[0].description +
           "<br>" +
-          jsonDatas[i].price +
+          jsonDatas[i].item[0].price +
           "<br>" +
-          jsonDatas[i].quantity +
-          "</p>";
+          jsonDatas[i].item[0].quantity +
+          "<br>" +
+          "<span class='text-start ps-5 text-danger'>" +
+          jsonDatas[i].item[0].contact.firstName +
+          " " +
+          jsonDatas[i].item[0].contact.lastName +
+          " - " +
+          jsonDatas[i].item[0].contact.address +
+          "</span></p>";
       }
     }
     byName.checked = false;
@@ -159,13 +173,24 @@ function submitForm(e) {
     })
     .then((resp) => {
       tempObject = {
-        name: resp.FormData.name,
-        type: resp.FormData.type,
-        description: resp.FormData.description,
-        price: resp.FormData.price,
-        quantity: resp.FormData.price,
+        translatedType: resp.FormData.type,
+        type: "",
+        item: [
+          {
+            name: resp.FormData.name,
+            description: resp.FormData.description,
+            price: resp.FormData.price,
+            quantity: resp.FormData.quantity,
+            contact: {
+              lastName: "You",
+              firstName: "Posted By",
+              address: "404 Rue de Votre Adresse 77700, Votreville",
+            },
+          },
+        ],
       };
       jsonDatas.push(tempObject);
+      console.log(jsonDatas);
       printItems(jsonDatas);
     });
 }
